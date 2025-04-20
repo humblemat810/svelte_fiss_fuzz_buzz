@@ -4,7 +4,7 @@
 
 	export let name;
 	let p_hello_world = '<p>Hello world' + name +  '</p>';
-	let countdown = 20;
+	let countdown = 6;
 </script>
 
 <main>

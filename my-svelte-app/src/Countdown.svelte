@@ -5,10 +5,10 @@
     export let countdown = 16;
 
     let timer = null
-	let countdown2 = 30;
+	let countdown2 = 0;
 	$: displayValue = `00:${(countdown + countdown2).toString().padStart(2,0)}`
 	onMount(()=> {
-		setInterval(()=> {countdown -=1;}, 1000)
+		timer = setInterval(()=> {countdown -=1;}, 1000)
 	})
     afterUpdate(()=>{
         
@@ -22,7 +22,11 @@
 </script>
 
 <p>
-    count: {displayValue}
+    {#if countdown === 0}
+        time's up
+    {:else}
+        count: {displayValue}
+    {/if}
     {#if (countdown % 3) === 0}
         {#if countdown % 5 === 0}  
            <p>buzz</p>
